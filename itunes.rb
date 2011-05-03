@@ -6,6 +6,9 @@ include OSX
 
 OSX.require_framework 'ScriptingBridge'
 
+
+name_of_playlist = "depression vol 2"
+
 #framework 'Foundation'
 #framework 'ScriptingBridge'
 
@@ -43,7 +46,7 @@ itunes.run
 
 print itunes.currentTrack().name()
 
-playlist = itunes.sources.objectWithName("Library").userPlaylists.objectWithName("POWERFUCKINGHOUR")
+playlist = itunes.sources.objectWithName("Library").userPlaylists.objectWithName(name_of_playlist)
 
 time1 = Time.new
 time2 = time1 + 60
