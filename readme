@@ -1,0 +1,5 @@
+Created by Danny Peters
+
+Simple Script to change the song in a given itunes playlist every 60 seconds.
+
+set name_of_playlist to the name of the playlist you wish to usue
