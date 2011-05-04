@@ -81,15 +81,20 @@ for x in 0..60
   if first == 1
     playlist.playOnce(false) if playlist
     puts "the First track is #{itunes.currentTrack().name()} by #{itunes.currentTrack().artist()}"
+    puts "Assuming no one has started drinking already all BACs are ZERO"
     first = 2
+    $time = $time + 1
   else
-    sleep(60)
+    sleep(10)
+    printf("%s", "\a")
     itunes.nextTrack()
-    puts "the current track is #{itunes.currentTrack().name()} by #{itunes.currentTrack().artist()} this is track number #{$time+2}"
+    puts "the current track is \"#{itunes.currentTrack().name()}\" by #{itunes.currentTrack().artist()} this is track number #{$time+1}, there are #{60-$time-1} tracks left"
     counter = 0
     while counter < numplayer
       $bac[counter] = bac_calc($time, $sex[counter], $weight[counter])
-      puts "BAC for #{$name[counter]} is #{$bac[counter]}"
+      print  "BAC for #{$name[counter]} is "
+      printf("%.4f", $bac[counter])
+      puts
       counter = counter + 1
     end
     $time = $time + 1
